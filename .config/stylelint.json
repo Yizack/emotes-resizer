@@ -7,10 +7,10 @@
     "scss/double-slash-comment-empty-line-before": "never"
   },
   "ignoreFiles": [
-    "./node_modules/**/*",
-    "./.nuxt/**/*",
-    "./dist/**/*",
-    "./.output/**/*",
-    "./public/**/*"
+    "../node_modules/**/*",
+    "../.nuxt/**/*",
+    "../dist/**/*",
+    "../.output/**/*",
+    "../public/**/*"
   ]
 }

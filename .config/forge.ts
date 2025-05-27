@@ -31,19 +31,19 @@ export default {
       build: [
         {
           entry: "electron/main.ts",
-          config: "vite.forge-main.config.ts",
+          config: ".config/vite.forge-main.ts",
           target: "main"
         },
         {
           entry: "electron/preload.ts",
-          config: "vite.forge-main.config.ts",
+          config: ".config/vite.forge-main.ts",
           target: "preload"
         }
       ],
       renderer: [
         {
           name: "main_window",
-          config: "vite.forge-renderer.config.ts"
+          config: ".config/vite.forge-renderer.ts"
         }
       ]
     }),

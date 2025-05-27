@@ -23,7 +23,11 @@
     "build": "nuxt generate && electron-forge make",
     "package": "electron-forge package",
     "make": "electron-forge make",
-    "lint": "eslint --ext .ts,.tsx .",
+    "lint": "pnpm lint:eslint && pnpm lint:stylelint",
+    "lint:fix": "pnpm lint:eslint --fix && pnpm lint:stylelint --fix",
+    "lint:eslint": "eslint --config .config/eslint.mjs",
+    "lint:eslint:inspect": "pnpm dlx @eslint/config-inspector --config .config/eslint.mjs",
+    "lint:stylelint": "stylelint \"**/*.{css,scss,sass}\" --config .config/stylelint.json",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare"
@@ -55,6 +59,9 @@
     "vite": "^6.3.5",
     "vite-plugin-electron": "^0.29.0",
     "vite-plugin-electron-renderer": "^0.14.6"
+  },
+  "config": {
+    "forge": ".config/forge.ts"
   },
   "packageManager": "pnpm@10.11.0"
 }
