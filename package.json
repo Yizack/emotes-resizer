@@ -1,0 +1,60 @@
+{
+  "private": true,
+  "name": "emotes-resizer",
+  "version": "0.0.0",
+  "main": ".vite/build/main.cjs",
+  "description": "Desktop application for resizing emotes using Electron and Nuxt",
+  "type": "module",
+  "license": "MIT",
+  "author": {
+    "name": "Yizack Rangel",
+    "email": "yizackr@gmail.com",
+    "url": "https://yizack.com"
+  },
+  "homepage": "https://emotes-resizer.yizack.com",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Yizack/emotes-resizer.git"
+  },
+  "bugs": "https://github.com/Yizack/emotes-resizer/issues",
+  "scripts": {
+    "start": "electron-forge start",
+    "dev": "concurrently \"nuxt dev\" \"cross-env NODE_ENV=development electron-forge start\"",
+    "build": "nuxt generate && electron-forge make",
+    "package": "electron-forge package",
+    "make": "electron-forge make",
+    "lint": "eslint --ext .ts,.tsx .",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
+  },
+  "devDependencies": {
+    "@electron-forge/cli": "^7.8.1",
+    "@electron-forge/maker-deb": "^7.8.1",
+    "@electron-forge/maker-rpm": "^7.8.1",
+    "@electron-forge/maker-squirrel": "^7.8.1",
+    "@electron-forge/maker-zip": "^7.8.1",
+    "@electron-forge/plugin-auto-unpack-natives": "^7.8.1",
+    "@electron-forge/plugin-fuses": "^7.8.1",
+    "@electron-forge/plugin-vite": "^7.8.1",
+    "@iconify-json/lucide": "^1.2.45",
+    "@nuxt/eslint": "^1.4.1",
+    "@nuxt/ui": "^3.1.3",
+    "@types/electron-squirrel-startup": "^1.0.2",
+    "@types/node": "^22.15.21",
+    "concurrently": "^9.1.2",
+    "cross-env": "^7.0.3",
+    "electron": "^36.3.1",
+    "electron-squirrel-startup": "^1.0.1",
+    "eslint": "^9.27.0",
+    "nuxt": "^3.17.4",
+    "sass": "^1.89.0",
+    "stylelint": "^16.19.1",
+    "stylelint-config-standard-scss": "^15.0.1",
+    "typescript": "^5.8.3",
+    "vite": "^6.3.5",
+    "vite-plugin-electron": "^0.29.0",
+    "vite-plugin-electron-renderer": "^0.14.6"
+  },
+  "packageManager": "pnpm@10.11.0"
+}

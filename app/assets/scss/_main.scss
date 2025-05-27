@@ -1,0 +1,29 @@
+:root {
+  scrollbar-width: auto;
+  scroll-behavior: unset;
+}
+
+*::-webkit-scrollbar {
+  width: 8px;
+}
+
+*::-webkit-scrollbar-track {
+  background-color: var(--ui-bg-muted);
+}
+
+*::-webkit-scrollbar-thumb {
+  height: 56px;
+  border-radius: 8px;
+  border: 0 solid transparent;
+  background-clip: content-box;
+  background-color: var(--ui-primary);
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background-color: var(--ui-primary);
+}
+
+::selection {
+  background: var(--ui-primary);
+  color: var(--ui-bg-muted);
+}
