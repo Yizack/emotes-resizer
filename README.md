@@ -11,6 +11,7 @@ A desktop application for streamers and content creators to quickly resize emote
 
 - 🚀 [Features](#features)
 - 📥 [Installation](#installation)
+- 📚 [Usage](#usage)
 - 🗒️ [Credits](#credits)
 - ⚖️ [License](#license)
 - 💻 [Development](#development)
@@ -35,7 +36,27 @@ A desktop application for streamers and content creators to quickly resize emote
 
 Not yet available.
 
+## <a name="usage">📚 Usage</a>
 
+### Quick Start Guide
+
+- **Open the application**: Launch the app from the downloaded executable.
+- **Select files**: You can add files to the app in two ways:
+  - Click the "Select Files" button
+  - Drag and drop your images directly into the app window.
+
+### Configure resizing options
+
+- **Resample**: Choose the interpolation method. (Nearest Neighbor, Bilinear, Bicubic)
+- **Action**: Processing mode availables:
+  - **Resize**: Resize the original image to the specified size.
+  - **Generate**: Generate specified sizes from the original image.
+  - **Scale**: Scale the original image by a specified percentage factor.
+
+### Process images
+
+The processed images will be saved in the same directory as the originals, the file name of the generated images will include a suffix (e.g., `name-28.png`) to indicate the generated size.
+  
 ## <a name="credits">🗒️ Credits</a>
 
 - [Nuxt](https://nuxt.com/), the [Vue](https://vuejs.org/) framework
