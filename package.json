@@ -27,6 +27,7 @@
     "lint:eslint": "eslint --config .config/eslint.mjs",
     "lint:eslint:inspect": "pnpm dlx @eslint/config-inspector --config .config/eslint.mjs",
     "lint:stylelint": "stylelint \"**/*.{css,scss,sass}\" --config .config/stylelint.json",
+    "test:types": "vue-tsc --noEmit",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare"
@@ -58,7 +59,8 @@
     "typescript": "^5.8.3",
     "vite": "^6.3.5",
     "vite-plugin-electron": "^0.29.0",
-    "vite-plugin-electron-renderer": "^0.14.6"
+    "vite-plugin-electron-renderer": "^0.14.6",
+    "vue-tsc": "^2.2.10"
   },
   "dependencies": {
     "sharp": "^0.34.2"
