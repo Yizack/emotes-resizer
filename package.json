@@ -1,7 +1,7 @@
 {
   "private": true,
   "name": "emotes-resizer",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "main": ".vite/build/main.cjs",
   "description": "Desktop application for resizing emotes using Electron and Nuxt",
   "type": "module",
@@ -23,7 +23,7 @@
     "build": "nuxt generate && electron-forge make",
     "package": "electron-forge package",
     "make": "electron-forge make",
-    "release": "npm run lint && nuxt generate && changelogen --release && npm publish && git push --follow-tags",
+    "release": "npm run lint && nuxt generate && changelogen --release && git push --follow-tags",
     "lint": "pnpm lint:eslint && pnpm lint:stylelint",
     "lint:fix": "pnpm lint:eslint --fix && pnpm lint:stylelint --fix",
     "lint:eslint": "eslint --config .config/eslint.mjs",
