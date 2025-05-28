@@ -62,5 +62,17 @@ export default {
       [FuseV1Options.OnlyLoadAppFromAsar]: true
     }),
     new AutoUnpackNativesPlugin({})
+  ],
+  publishers: [
+    {
+      name: "@electron-forge/publisher-github",
+      config: {
+        repository: {
+          owner: "Yizack",
+          name: "emotes-resizer"
+        },
+        prerelease: true
+      }
+    }
   ]
 } satisfies ForgeConfig;
