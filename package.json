@@ -51,7 +51,6 @@
     "concurrently": "^9.1.2",
     "cross-env": "^7.0.3",
     "electron": "^36.3.1",
-    "electron-squirrel-startup": "^1.0.1",
     "eslint": "^9.27.0",
     "nuxt": "^3.17.4",
     "sass": "^1.89.0",
@@ -64,6 +63,7 @@
     "vue-tsc": "^2.2.10"
   },
   "dependencies": {
+    "electron-squirrel-startup": "^1.0.1",
     "sharp": "^0.34.2"
   },
   "config": {

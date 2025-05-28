@@ -1,8 +1,12 @@
 nodeLinker: hoisted
 
+packages:
+  - .
+
 ignoredBuiltDependencies:
   - '@parcel/watcher'
   - esbuild
+
 onlyBuiltDependencies:
   - electron
   - electron-winstaller

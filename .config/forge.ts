@@ -17,7 +17,10 @@ export default {
     asar: {
       unpack: "**/node_modules/{sharp,@img}/**/*"
     },
-    osxSign: {}
+    osxSign: {},
+    ignore: [
+      /^\/(?!node_modules|package\.json|.vite)/
+    ]
   },
   rebuildConfig: {
     onlyModules: ["sharp"],
