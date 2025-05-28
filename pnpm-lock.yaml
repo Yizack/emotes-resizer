@@ -52,7 +52,7 @@ importers:
         specifier: ^1.0.2
         version: 1.0.2
       '@types/node':
-        specifier: ^22.15.21
+        specifier: ^22.15.23
         version: 22.15.23
       concurrently:
         specifier: ^9.1.2
