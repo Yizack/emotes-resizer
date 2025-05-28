@@ -1,6 +1,8 @@
 import { fileURLToPath } from "node:url";
-import { BrowserWindow, app } from "electron";
+import { BrowserWindow, app, shell } from "electron";
 import started from "electron-squirrel-startup";
+import handlerProcessImages from "./handlers/process-images";
+import handlerOpenImagesDialog from "./handlers/open-images-dialog";
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 if (started) {
@@ -21,9 +23,20 @@ const createWindow = () => {
     }
   });
 
+  mainWindow.setMenuBarVisibility(false);
+  mainWindow.webContents.on("will-navigate", function (event, reqUrl) {
+    const requestedHost = new URL(reqUrl).host;
+    const currentHost = new URL(mainWindow.webContents.getURL()).host;
+    if (requestedHost && requestedHost != currentHost) {
+      event.preventDefault();
+      shell.openExternal(reqUrl);
+    }
+  });
+
   // and load the index.html of the app.
   const isDev = process.env.NODE_ENV === "development";
   if (isDev) {
+    mainWindow.setIcon(fileURLToPath(new URL("../../public/favicon.ico", import.meta.url)));
     mainWindow.loadURL("http://localhost:3000");
     mainWindow.webContents.openDevTools();
   }
@@ -56,3 +69,7 @@ app.on("activate", () => {
 
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and import them here.
+
+// Register IPC handlers
+handlerProcessImages();
+handlerOpenImagesDialog();

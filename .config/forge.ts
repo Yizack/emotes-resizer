@@ -9,20 +9,24 @@ import { FuseV1Options, FuseVersion } from "@electron/fuses";
 
 export default {
   packagerConfig: {
-    name: "Emotes Resizer",
+    name: "emotes-resizer",
+    icon: "public/favicon",
     appBundleId: "com.yizack.emotes-resizer",
     appCategoryType: "public.app-category.utilities",
-    asar: true,
+    asar: {
+      unpack: "**/node_modules/{sharp,@img}/**/*"
+    },
     osxSign: {}
   },
   rebuildConfig: {
+    onlyModules: ["sharp"],
     force: true
   },
   makers: [
     new MakerSquirrel({ usePackageJson: true }),
-    new MakerZIP({}),
-    new MakerRpm({}),
-    new MakerDeb({})
+    // new MakerZIP({}),
+    // new MakerRpm({}),
+    // new MakerDeb({})
   ],
   plugins: [
     new VitePlugin({

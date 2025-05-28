@@ -1,3 +1,5 @@
+import { APP } from "../app/utils/app-info";
+
 export default defineNuxtConfig({
   modules: [
     "@nuxt/ui",
@@ -7,7 +9,7 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   app: {
     head: {
-      title: "Emote Resizer",
+      title: APP.name,
       meta: [
         { "http-equiv": "content-security-policy", "content": "script-src 'self' 'unsafe-inline'" }
       ]

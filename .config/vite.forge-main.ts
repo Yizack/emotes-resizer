@@ -15,9 +15,7 @@ export default defineConfig({
         "electron",
         "serialport",
         "sqlite3",
-        "node:path",
-        "node:url",
-        "node:fs"
+        "sharp"
       ]
     }
   }

@@ -5,6 +5,33 @@
 @custom-variant light (&:where(.light, .light *));
 @custom-variant hover (&:hover);
 
+@theme static {
+	--color-green-50: #ebfdf6;
+	--color-green-100: #d4f8eb;
+	--color-green-200: #a7f2d9;
+	--color-green-300: #6ae6c2;
+	--color-green-400: #00d1a6;
+	--color-green-500: #00ba91;
+	--color-green-600: #009775;
+	--color-green-700: #1B886D;
+	--color-green-800: #005f4a;
+	--color-green-900: #164c3d;
+	--color-green-950: #052c21;
+
+  
+	--color-slate-50: #f9fafb;
+	--color-slate-100: #f3f4f6;
+	--color-slate-200: #e2e5e9;
+	--color-slate-300: #cdd5e1;
+	--color-slate-400: #92a1b7;
+	--color-slate-500: #63738a;
+	--color-slate-600: #44546b;
+	--color-slate-700: #354151;
+	--color-slate-800: #222830;
+	--color-slate-900: #15191e;
+	--color-slate-950: #06090E;
+}
+
 :root {
   --ui-primary: var(--ui-color-primary-700);
   --ui-secondary: var(--ui-color-secondary-600);

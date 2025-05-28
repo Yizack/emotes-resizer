@@ -5,9 +5,10 @@ defineProps<{
   accept?: string;
 }>();
 
-const model = defineModel<FileList | null>();
+const electron = useElectron();
+const model = defineModel<{ path: string, name: string }[]>({ default: () => [] });
 const isDragging = ref(false);
-const inputRef = useTemplateRef<HTMLInputElement | null>("input");
+const isOpened = ref(false);
 
 const dragCounter = ref(0);
 
@@ -27,61 +28,68 @@ const handleDragOver = () => {
   isDragging.value = true;
 };
 
-const handleDrop = (e: DragEvent) => {
+const handleDrop = async (e: DragEvent) => {
   isDragging.value = false;
   dragCounter.value = 0;
+  const items = e.dataTransfer?.items;
 
-  if (e.dataTransfer?.files && e.dataTransfer.files.length > 0) {
-    model.value = e.dataTransfer.files;
+  if (!items?.length) return;
+
+  const paths: { path: string, name: string }[] = [];
+  for (const item of items) {
+    const file = item.getAsFile();
+    if (!file) continue;
+    const path = electron.getFilePath(file);
+    if (!path) continue;
+    paths.push({ path, name: file.name });
   }
+  model.value = paths;
 };
 
-const handleFileInput = (e: Event) => {
-  const target = e.target as HTMLInputElement;
-  if (target.files && target.files.length > 0) {
-    model.value = target.files;
-  }
+const openFileDialog = async () => {
+  if (model.value?.length || isOpened.value) return;
+  isOpened.value = true;
+  electron.openImagesDialog().then((files) => {
+    model.value = files;
+  }).finally(() => {
+    isOpened.value = false;
+  });
 };
-
-const openFileDialog = () => inputRef.value?.click();
 
 const fileNames = computed(() => {
   if (!model.value) return [];
-  return Array.from(model.value).map(file => file.name);
+  return model.value.map(file => file.name);
 });
 
 const clearFiles = () => {
-  model.value = null;
-  if (inputRef.value) {
-    inputRef.value.value = "";
-  }
+  model.value = [];
 };
 </script>
 
 <template>
   <div
-    class="w-full sm:w-xl mx-auto lg:min-h-[200px] border-2 border-dashed rounded-lg text-center transition-all duration-200 flex items-center justify-center border-muted hover:border-primary hover:bg-muted p-4 sm:px-6 lg:px-8"
+    class="w-full min-h-[200px] border-2 border-dashed rounded-lg text-center transition-all duration-200 flex items-center justify-center border-muted hover:border-primary hover:bg-muted p-4 sm:px-6 lg:px-8"
     :class="{
-      'border-primary bg-muted': isDragging,
-      'bg-muted': model && model.length > 0,
+      'min-h-[400px]': !model || !model.length,
+      'border-primary bg-muted': isDragging || model && model.length,
     }"
     @dragenter.prevent.stop="handleDragEnter"
     @dragleave.prevent.stop="handleDragLeave"
     @dragover.prevent.stop="handleDragOver"
     @drop.prevent.stop="handleDrop"
-    @click="openFileDialog"
+    @click.prevent.stop="openFileDialog"
   >
     <div v-if="!model || model.length === 0" class="flex flex-col items-center justify-center">
       <Icon name="lucide:file-up" size="2em" class="mb-2" />
       <p class="mb-2 text-base">{{ label || 'Drag files here or click to browse' }}</p>
       <UButton v-if="isDragging" label="Drop files" variant="solid" />
       <UButton v-else label="Browse files" variant="subtle" />
-      <input ref="input" type="file" :multiple="multiple" :accept="accept" class="hidden" @change="handleFileInput">
     </div>
 
     <div v-else class="w-full flex flex-col items-center justify-center">
+      <p class="font-medium">{{ model.length }} file(s) selected</p>
       <ul class="my-4 text-left list-none w-full border rounded-lg border-muted text-sm">
-        <li v-for="(name, i) in fileNames" :key="name" class="p-2 break-all border-muted" :class="{ 'border-b': i < fileNames.length - 1 }">{{ name }}</li>
+        <li v-for="(name, i) in fileNames" :key="name" class="p-3 break-all border-muted" :class="{ 'border-b': i < fileNames.length - 1 }">{{ name }}</li>
       </ul>
       <UButton label="Clear files" variant="subtle" color="error" @click.stop="clearFiles" />
     </div>
