@@ -14,7 +14,7 @@ export default {
     appBundleId: "com.yizack.emotes-resizer",
     appCategoryType: "public.app-category.utilities",
     asar: {
-      unpack: "**/node_modules/{sharp,@img}/**/*"
+      unpack: "**/node_modules/{sharp,@img,color,detect,semver,detect-libc}/**/*"
     },
     osxSign: {}
   },
@@ -24,9 +24,9 @@ export default {
   },
   makers: [
     new MakerSquirrel({ usePackageJson: true }),
-    // new MakerZIP({}),
-    // new MakerRpm({}),
-    // new MakerDeb({})
+    new MakerZIP({}),
+    new MakerRpm({}),
+    new MakerDeb({})
   ],
   plugins: [
     new VitePlugin({
@@ -35,21 +35,16 @@ export default {
       build: [
         {
           entry: "electron/main.ts",
-          config: ".config/vite.forge-main.ts",
+          config: ".config/vite.forge.ts",
           target: "main"
         },
         {
           entry: "electron/preload.ts",
-          config: ".config/vite.forge-main.ts",
+          config: ".config/vite.forge.ts",
           target: "preload"
         }
       ],
-      renderer: [
-        {
-          name: "main_window",
-          config: ".config/vite.forge-renderer.ts"
-        }
-      ]
+      renderer: []
     }),
     // Fuses are used to enable/disable various Electron functionality
     // at package time, before code signing the application

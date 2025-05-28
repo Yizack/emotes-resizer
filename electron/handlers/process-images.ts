@@ -1,15 +1,16 @@
 import path from "node:path";
 import { ipcMain } from "electron";
-import sharp from "sharp";
 
 export default function () {
   return ipcMain.handle("process-images", async (_, paths: string[], options: ImagesProcessOptions) => {
+    const { default: sharp } = await import("sharp");
+
     for (const filePath of paths) {
       const fileDir = options.outputDir || path.dirname(filePath);
       const image = sharp(filePath);
       const metadata = await image.metadata();
 
-      const generateImage = async (pipeline: sharp.Sharp, sizeOptions: { width: number, height: number }) => {
+      const generateImage = async (pipeline: typeof image, sizeOptions: { width: number, height: number }) => {
         const fileNameWithoutExt = path.parse(filePath).name;
         const isSquare = sizeOptions.width === sizeOptions.height;
         const fileSizeText = isSquare ? `${sizeOptions.width}` : `${sizeOptions.width}x${sizeOptions.height}`;

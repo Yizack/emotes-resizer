@@ -8,6 +8,8 @@ export default defineNuxtConfig({
   ssr: false,
   devtools: { enabled: true },
   app: {
+    baseURL: "./",
+    cdnURL: "./",
     head: {
       title: APP.name,
       meta: [
@@ -19,6 +21,11 @@ export default defineNuxtConfig({
     "~/assets/css/ui.tailwind.css",
     "~/assets/scss/app.scss"
   ],
+  router: {
+    options: {
+      hashMode: true
+    }
+  },
   colorMode: {
     preference: "dark",
     fallback: "dark",
@@ -33,7 +40,9 @@ export default defineNuxtConfig({
     inlineStyles: false
   },
   experimental: {
-    typedPages: true
+    typedPages: true,
+    payloadExtraction: false,
+    renderJsonPayloads: false
   },
   compatibilityDate: "2025-05-26",
   vite: {

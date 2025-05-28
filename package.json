@@ -18,7 +18,6 @@
   },
   "bugs": "https://github.com/Yizack/emotes-resizer/issues",
   "scripts": {
-    "start": "electron-forge start",
     "dev": "concurrently \"nuxt dev\" \"cross-env NODE_ENV=development electron-forge start\"",
     "build": "nuxt generate && electron-forge make",
     "package": "electron-forge package",
@@ -41,6 +40,7 @@
     "@electron-forge/plugin-auto-unpack-natives": "^7.8.1",
     "@electron-forge/plugin-fuses": "^7.8.1",
     "@electron-forge/plugin-vite": "^7.8.1",
+    "@electron/fuses": "^1.8.0",
     "@iconify-json/lucide": "^1.2.45",
     "@nuxt/eslint": "^1.4.1",
     "@nuxt/ui": "^3.1.3",
