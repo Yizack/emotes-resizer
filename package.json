@@ -18,6 +18,7 @@
   },
   "bugs": "https://github.com/Yizack/emotes-resizer/issues",
   "scripts": {
+    "start": "electron-forge start",
     "dev": "concurrently \"nuxt dev\" \"cross-env NODE_ENV=development electron-forge start\"",
     "build": "nuxt generate && electron-forge make",
     "package": "electron-forge package",

@@ -5,6 +5,7 @@ import { MakerDeb } from "@electron-forge/maker-deb";
 import { MakerRpm } from "@electron-forge/maker-rpm";
 import { VitePlugin } from "@electron-forge/plugin-vite";
 import { FusesPlugin } from "@electron-forge/plugin-fuses";
+import { AutoUnpackNativesPlugin } from "@electron-forge/plugin-auto-unpack-natives";
 import { FuseV1Options, FuseVersion } from "@electron/fuses";
 
 export default {
@@ -14,7 +15,7 @@ export default {
     appBundleId: "com.yizack.emotes-resizer",
     appCategoryType: "public.app-category.utilities",
     asar: {
-      unpack: "**/node_modules/{sharp,@img,color,detect,semver,detect-libc}/**/*"
+      unpack: "**/node_modules/{sharp,@img}/**/*"
     },
     osxSign: {}
   },
@@ -56,6 +57,7 @@ export default {
       [FuseV1Options.EnableNodeCliInspectArguments]: false,
       [FuseV1Options.EnableEmbeddedAsarIntegrityValidation]: true,
       [FuseV1Options.OnlyLoadAppFromAsar]: true
-    })
+    }),
+    new AutoUnpackNativesPlugin({})
   ]
 } satisfies ForgeConfig;

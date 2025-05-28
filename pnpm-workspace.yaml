@@ -1,3 +1,5 @@
+nodeLinker: hoisted
+
 ignoredBuiltDependencies:
   - '@parcel/watcher'
   - esbuild
