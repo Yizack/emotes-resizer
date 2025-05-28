@@ -1,4 +1,4 @@
-name: Build and Release
+name: release
 
 on:
   push:
@@ -24,13 +24,13 @@ jobs:
           node-version: lts/*
           cache: pnpm
         
-      - name: 📦 Install Dependencies
+      - name: 📦 Install dependencies
         run: pnpm install
         
-      - name: Build Application
-        run: pnpm run build
+      - name: 💚 Build Nuxt app
+        run: pnpm run generate
         
-      - name: Publish to GitHub
+      - name: ⚛️ Make and publish artifacts
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: pnpm exec electron-forge publish
