@@ -50,7 +50,7 @@ const processFiles = async () => {
   const mergedOptions = { ...toRaw(options.value), ...selectedOptions.value };
   isLoading.value = true;
   electron.processImages(paths, mergedOptions).then(() => {
-    toast.add({ title: APP.name, description: "Your images have been processed.", color: "success" });
+    toast.add({ title: APP.name, description: "Your images have been processed.", color: "success", duration: 2000 });
     files.value = [];
   }).catch((error: Error) => {
     toast.add({ title: APP.name, description: `An error occurred while processing your images: ${error.message}`, color: "error" });
