@@ -2,7 +2,7 @@ import type { ForgeConfig } from "@electron-forge/shared-types";
 import { MakerSquirrel } from "@electron-forge/maker-squirrel";
 import { MakerZIP } from "@electron-forge/maker-zip";
 import { MakerDeb } from "@electron-forge/maker-deb";
-import { MakerRpm } from "@electron-forge/maker-rpm";
+import { MakerDMG } from "@electron-forge/maker-dmg";
 import { VitePlugin } from "@electron-forge/plugin-vite";
 import { FusesPlugin } from "@electron-forge/plugin-fuses";
 import { AutoUnpackNativesPlugin } from "@electron-forge/plugin-auto-unpack-natives";
@@ -31,7 +31,7 @@ export default {
   makers: [
     new MakerSquirrel({ usePackageJson: true }),
     new MakerZIP({}),
-    new MakerRpm({}),
+    new MakerDMG({}),
     new MakerDeb({})
   ],
   plugins: [
