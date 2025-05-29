@@ -26,15 +26,17 @@ export default function () {
 
       switch (options.action) {
         case "scale":
-          return generateImage(image, {
+          await generateImage(image, {
             width: Math.round(metadata.width * ((options.percent || 100) / 100)),
             height: Math.round(metadata.height * ((options.percent || 100) / 100))
           });
+          continue;
         case "resize":
-          return generateImage(image, {
+          await generateImage(image, {
             width: options.width || metadata.width,
             height: options.height || metadata.height
           });
+          continue;
         case "generate":
           for (const size of options.sizes || [100, 200, 300]) {
             await generateImage(image.clone(), {
@@ -42,7 +44,7 @@ export default function () {
               height: Number(size)
             });
           }
-          return;
+          continue;
       }
     }
   });
