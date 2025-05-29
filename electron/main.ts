@@ -1,3 +1,4 @@
+import { fileURLToPath } from "node:url";
 import path from "node:path";
 import { BrowserWindow, app, shell } from "electron";
 import started from "electron-squirrel-startup";
@@ -35,7 +36,7 @@ const createWindow = () => {
 
   const isDev = process.env.NODE_ENV === "development";
   if (isDev) {
-    mainWindow.setIcon(path.join(__dirname, "../../public/favicon.ico", import.meta.url));
+    mainWindow.setIcon(fileURLToPath(new URL("../../public/favicon.ico", import.meta.url)));
     mainWindow.loadURL("http://localhost:3000");
     mainWindow.webContents.openDevTools();
   }
