@@ -1,6 +1,30 @@
 # Changelog
 
 
+## v0.0.3
+
+[compare changes](https://github.com/Yizack/emotes-resizer/compare/v0.0.2...v0.0.3)
+
+### 🚀 Enhancements
+
+- Support macos and linux deb ([54965a7](https://github.com/Yizack/emotes-resizer/commit/54965a7))
+
+### 📖 Documentation
+
+- Update resample info ([32dbd79](https://github.com/Yizack/emotes-resizer/commit/32dbd79))
+
+### 🏡 Chore
+
+- Include only english language only ([85af901](https://github.com/Yizack/emotes-resizer/commit/85af901))
+
+### 🤖 CI
+
+- **release:** Rename job to publish ([b2022e2](https://github.com/Yizack/emotes-resizer/commit/b2022e2))
+
+### ❤️ Contributors
+
+- Yizack Rangel ([@Yizack](https://github.com/Yizack))
+
 ## v0.0.2
 
 [compare changes](https://github.com/Yizack/emotes-resizer/compare/v0.0.1...v0.0.2)
