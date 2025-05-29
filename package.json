@@ -54,6 +54,7 @@
     "concurrently": "^9.1.2",
     "cross-env": "^7.0.3",
     "electron": "^36.3.2",
+    "electron-packager-languages": "^0.6.0",
     "eslint": "^9.27.0",
     "nuxt": "^3.17.4",
     "sass": "^1.89.0",

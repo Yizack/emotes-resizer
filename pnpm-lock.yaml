@@ -72,6 +72,9 @@ importers:
       electron:
         specifier: ^36.3.2
         version: 36.3.2
+      electron-packager-languages:
+        specifier: ^0.6.0
+        version: 0.6.0
       eslint:
         specifier: ^9.27.0
         version: 9.27.0(jiti@2.4.2)
@@ -3076,6 +3079,10 @@ packages:
     engines: {node: '>= 10.0.0'}
     os: [darwin, linux]
     hasBin: true
+
+  electron-packager-languages@0.6.0:
+    resolution: {integrity: sha512-vdSTJ6nH93RFo2YnoFbQDb9IAgMTG8ixYOQZuunpFVIUhKpPrRhmbQOuTBk7zJt5eaKUhMZixMD87WQynnM5iQ==}
+    engines: {node: '>6.0.0'}
 
   electron-squirrel-startup@1.0.1:
     resolution: {integrity: sha512-sTfFIHGku+7PsHLJ7v0dRcZNkALrV+YEozINTW8X1nM//e5O3L+rfYuvSW00lmGHnYmUjARZulD8F2V8ISI9RA==}
@@ -10151,6 +10158,10 @@ snapshots:
       - supports-color
     optional: true
 
+  electron-packager-languages@0.6.0:
+    dependencies:
+      rimraf: 2.6.3
+
   electron-squirrel-startup@1.0.1:
     dependencies:
       debug: 2.6.9
@@ -12842,7 +12853,6 @@ snapshots:
   rimraf@2.6.3:
     dependencies:
       glob: 7.2.3
-    optional: true
 
   rimraf@3.0.2:
     dependencies:

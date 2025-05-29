@@ -7,6 +7,7 @@ import { VitePlugin } from "@electron-forge/plugin-vite";
 import { FusesPlugin } from "@electron-forge/plugin-fuses";
 import { AutoUnpackNativesPlugin } from "@electron-forge/plugin-auto-unpack-natives";
 import { FuseV1Options, FuseVersion } from "@electron/fuses";
+import setLanguages from "electron-packager-languages";
 
 export default {
   packagerConfig: {
@@ -20,7 +21,8 @@ export default {
     osxSign: {},
     ignore: [
       /^\/(?!node_modules|package\.json|.vite)/
-    ]
+    ],
+    afterCopy: [setLanguages(["en", "en-US", "en-GB"], { allowRemoveAll: true })]
   },
   rebuildConfig: {
     onlyModules: ["sharp"],
