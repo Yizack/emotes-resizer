@@ -1,4 +1,4 @@
-import type { AffineOptions } from "sharp";
+import type { KernelEnum } from "sharp";
 
 declare global {
   type ImagesProcessActions = {
@@ -13,7 +13,8 @@ declare global {
     height?: number;
   };
 
-  type ImagesProcessOptions<T = ImagesProcessActions["action"]> = Pick<AffineOptions, "interpolator"> & ImagesProcessActions & {
+  type ImagesProcessOptions<T = ImagesProcessActions["action"]> = ImagesProcessActions & {
+    resample?: KernelEnum[keyof KernelEnum];
     action: T;
     outputDir?: string;
   };

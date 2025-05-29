@@ -1,7 +1,9 @@
-export const resampleTypes: { label: string, value: ImagesProcessOptions["interpolator"] }[] = [
+export const resampleTypes: { label: string, value: ImagesProcessOptions["resample"] }[] = [
   { label: "Nearest neighbor", value: "nearest" },
-  { label: "Bilinear", value: "bilinear" },
-  { label: "Bicubic", value: "bicubic" }
+  { label: "Cubic", value: "cubic" },
+  { label: "Mitchell", value: "mitchell" },
+  { label: "Lanczos2", value: "lanczos2" },
+  { label: "Lanczos3", value: "lanczos3" }
 ];
 
 export const actionTypes: { label: string, value: ImagesProcessOptions["action"] }[] = [

@@ -1,5 +1,5 @@
 import path from "node:path";
-import sharp from "sharp";
+import sharp, { type Sharp } from "sharp";
 import { ipcMain } from "electron";
 
 export default function () {
@@ -9,7 +9,7 @@ export default function () {
       const image = sharp(filePath);
       const metadata = await image.metadata();
 
-      const generateImage = async (pipeline: sharp.Sharp, sizeOptions: { width: number, height: number }) => {
+      const generateImage = async (pipeline: Sharp, sizeOptions: { width: number, height: number }) => {
         const fileNameWithoutExt = path.parse(filePath).name;
         const isSquare = sizeOptions.width === sizeOptions.height;
         const fileSizeText = isSquare ? `${sizeOptions.width}` : `${sizeOptions.width}x${sizeOptions.height}`;
@@ -19,8 +19,10 @@ export default function () {
           width: sizeOptions.width,
           height: sizeOptions.height,
           fit: isSquare ? "inside" : "fill",
-          position: "center"
-        }).affine([[1, 0], [0, 1]], { interpolator: options.interpolator });
+          position: "center",
+          kernel: options.resample
+        });
+
         await pipeline.png().toFile(path.join(fileDir, outputName));
       };
 

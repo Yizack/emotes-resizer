@@ -19,7 +19,7 @@ const scaleOptions = ref<ImagesProcessOptions<"scale">>({
 });
 
 const options = ref<ImagesProcessOptions>({
-  interpolator: "bilinear",
+  resample: "nearest",
   action: "generate"
 });
 
@@ -79,7 +79,7 @@ const addSize = () => {
         <div class="grid grid-cols-2 gap-4">
           <div>
             <h3 class="mb-2 font-medium">Resample</h3>
-            <USelect v-model="options.interpolator" :items="resampleTypes" size="lg" label="Resample" class="w-full" />
+            <USelect v-model="options.resample" :items="resampleTypes" size="lg" label="Resample" class="w-full" />
           </div>
           <div>
             <h3 class="mb-2 font-medium">Action</h3>
