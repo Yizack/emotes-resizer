@@ -25,18 +25,26 @@ A desktop application for streamers and content creators to quickly resize emote
 - 💾 Processing multiple files at once
 - 📂 Save processed images in the same directory as originals
 - ⚡ Fast image processing using [Sharp](https://sharp.pixelplumbing.com/)
+- 🖥️ Cross-platform support for Windows, macOS, and Linux
 
 ## <a name="installation">📥 Installation</a>
 
-### Windows
+We provide pre-built binaries for Windows, macOS, and Linux. You can download the latest version from the [Releases](https://github.com/Yizack/emotes-resizer/releases) page.
 
-1. Download the latest `.exe` file from the [Releases](https://github.com/Yizack/emotes-resizer/releases) page.
-2. Run the executable to start the application.
+### Download guide
 
+Where `X.X.X` is the current version number, you can chose from the following options:
 
-### Mac and Linux
-
-Not yet available.
+- **Windows**:
+  - `emotes-resizer-X.X.X.Setup.exe`
+  - `emotes-resizer-win32-x64-0.0.3.zip`
+  - `emotes_resizer-0.0.3-full.nupkg`
+- **macOS**:
+  - `emotes-resizer-X.X.X-arm64.dmg`
+  - `emotes-resizer-darwin-arm64-X.X.X.zip`
+- **Linux**:
+  - `emotes-resizer_X.X.X_amd64.deb`
+  - `emotes-resizer-linux-x64-X.X.X.zip`
 
 ## <a name="usage">📚 Usage</a>
 
