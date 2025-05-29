@@ -1,6 +1,36 @@
 # Changelog
 
 
+## v0.0.2
+
+[compare changes](https://github.com/Yizack/emotes-resizer/compare/v0.0.1...v0.0.2)
+
+### 🩹 Fixes
+
+- Go through the entire images array ([c95e5d5](https://github.com/Yizack/emotes-resizer/commit/c95e5d5))
+- **dev:** Fix favicon ([e8fded2](https://github.com/Yizack/emotes-resizer/commit/e8fded2))
+- Resample method using resize kernel ([ce95067](https://github.com/Yizack/emotes-resizer/commit/ce95067))
+
+### 📖 Documentation
+
+- Add readme ([c7d799e](https://github.com/Yizack/emotes-resizer/commit/c7d799e))
+- Include usage ([639d833](https://github.com/Yizack/emotes-resizer/commit/639d833))
+- Add screenshots ([61938fb](https://github.com/Yizack/emotes-resizer/commit/61938fb))
+- Add presentation image ([7725573](https://github.com/Yizack/emotes-resizer/commit/7725573))
+
+### 🏡 Chore
+
+- Add funding ([66b68fc](https://github.com/Yizack/emotes-resizer/commit/66b68fc))
+- Restore toasts if remaining on blur ([8dcacf3](https://github.com/Yizack/emotes-resizer/commit/8dcacf3))
+
+### 🤖 CI
+
+- **release:** Use nuxt generate before publish ([a550e97](https://github.com/Yizack/emotes-resizer/commit/a550e97))
+
+### ❤️ Contributors
+
+- Yizack Rangel ([@Yizack](https://github.com/Yizack))
+
 ## v0.0.1
 
 
