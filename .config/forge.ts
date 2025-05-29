@@ -31,7 +31,7 @@ export default {
   makers: [
     new MakerSquirrel({ usePackageJson: true }),
     new MakerZIP({}),
-    new MakerDMG({}),
+    new MakerDMG({ format: "ULFO" }),
     new MakerDeb({})
   ],
   plugins: [

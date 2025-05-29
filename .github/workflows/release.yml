@@ -29,6 +29,11 @@ jobs:
         
       - name: 💚 Build Nuxt app
         run: pnpm run generate
+
+      - name: ✂️ Rebuild native modules
+        run: |
+          npm rebuild
+          pnpm exec electron-rebuild
         
       - name: ⚛️ Make and publish artifacts
         env:
