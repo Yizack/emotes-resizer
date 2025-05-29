@@ -1,3 +1,5 @@
+![presentation](https://github.com/user-attachments/assets/b3ce0973-15e3-4ed4-98e9-93e52db7a6fb)
+
 # emotes-resizer
 
 ![GitHub release](https://img.shields.io/github/v/release/Yizack/emotes-resizer)
@@ -49,9 +51,9 @@ Not yet available.
 
 - **Resample**: Choose the interpolation method. (Nearest Neighbor, Bilinear, Bicubic)
 - **Action**: Processing mode availables:
-  - **Resize**: Resize the original image to the specified size.
   - **Generate**: Generate specified sizes from the original image.
   - **Scale**: Scale the original image by a specified percentage factor.
+  - **Resize**: Resize the original image to the specified size.
 
 ### Process images
 
