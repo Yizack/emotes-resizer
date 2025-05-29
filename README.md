@@ -49,7 +49,7 @@ Not yet available.
 
 ### Configure resizing options
 
-- **Resample**: Choose the resample method. Available methods: Nearest neighbor, Cubic, Mitchell, Lanczos2 and Lanczos3.
+- **Resample**: Available resample methods: Nearest neighbor, Cubic, Mitchell, Lanczos2 and Lanczos3.
 - **Action**: Processing mode available:
   - **Generate**: Generate specified sizes from the original image.
   - **Scale**: Scale the original image by a specified percentage factor.
