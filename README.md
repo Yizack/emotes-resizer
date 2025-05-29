@@ -55,7 +55,14 @@ Not yet available.
 
 ### Process images
 
-The processed images will be saved in the same directory as the originals, the file name of the generated images will include a suffix (e.g., `name-28.png`) to indicate the generated size.
+The processed images will be saved in the same directory as the original files in `PNG` format. Each generated image's filename will include a size suffix (e.g., `emote-28.png`, `emote-56.png`) to identify its dimensions.
+
+### Application Screenshots
+
+| Initial Screen | Files selected |
+|:---:|:---:|
+| ![initial](https://github.com/user-attachments/assets/618d9667-d0f7-4cb9-9873-b89c0e46388c) | ![generate](https://github.com/user-attachments/assets/a13b6937-20cc-43de-a582-b7898a984171) |
+| *Drag & drop interface* | *Action mode: Generate* |
   
 ## <a name="credits">🗒️ Credits</a>
 
