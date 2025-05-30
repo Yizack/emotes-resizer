@@ -1,6 +1,41 @@
 # Changelog
 
 
+## v0.0.4
+
+[compare changes](https://github.com/Yizack/emotes-resizer/compare/v0.0.3...v0.0.4)
+
+### 🚀 Enhancements
+
+- Support image output format and autodetection ([4abf744](https://github.com/Yizack/emotes-resizer/commit/4abf744))
+
+### 💅 Refactors
+
+- Include scale percent in output file name ([428acf8](https://github.com/Yizack/emotes-resizer/commit/428acf8))
+
+### 📖 Documentation
+
+- **installation:** Add download guide ([7290c67](https://github.com/Yizack/emotes-resizer/commit/7290c67))
+- Add license ([7af9c54](https://github.com/Yizack/emotes-resizer/commit/7af9c54))
+
+### 🏡 Chore
+
+- Add missing packager and maker info ([fe36a35](https://github.com/Yizack/emotes-resizer/commit/fe36a35))
+- Add floating input component ([02a2755](https://github.com/Yizack/emotes-resizer/commit/02a2755))
+- Increase window height ([b6c6792](https://github.com/Yizack/emotes-resizer/commit/b6c6792))
+
+### 🎨 Styles
+
+- Add select inputs with floating label ([fbd7198](https://github.com/Yizack/emotes-resizer/commit/fbd7198))
+
+### 🤖 CI
+
+- **release:** Rebuild native modules ([d707542](https://github.com/Yizack/emotes-resizer/commit/d707542))
+
+### ❤️ Contributors
+
+- Yizack Rangel ([@Yizack](https://github.com/Yizack))
+
 ## v0.0.3
 
 [compare changes](https://github.com/Yizack/emotes-resizer/compare/v0.0.2...v0.0.3)
