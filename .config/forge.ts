@@ -7,14 +7,17 @@ import { VitePlugin } from "@electron-forge/plugin-vite";
 import { FusesPlugin } from "@electron-forge/plugin-fuses";
 import { AutoUnpackNativesPlugin } from "@electron-forge/plugin-auto-unpack-natives";
 import { FuseV1Options, FuseVersion } from "@electron/fuses";
+import { PublisherGithub } from "@electron-forge/publisher-github";
 import setLanguages from "electron-packager-languages";
+import packageJSON from "../package.json";
 
 export default {
   packagerConfig: {
-    name: "emotes-resizer",
-    icon: "public/favicon",
+    name: packageJSON.name,
     appBundleId: "com.yizack.emotes-resizer",
     appCategoryType: "public.app-category.utilities",
+    appCopyright: `Copyright (C) ${new Date().getFullYear()} ${packageJSON.author.name}`,
+    icon: "public/favicon",
     asar: {
       unpack: "**/node_modules/{sharp,@img}/**/*"
     },
@@ -22,17 +25,33 @@ export default {
     ignore: [
       /^\/(?!node_modules|package\.json|.vite)/
     ],
-    afterCopy: [setLanguages(["en", "en-US", "en-GB"], { allowRemoveAll: true })]
+    afterCopy: [setLanguages(["en", "en-US", "en-GB"])]
   },
   rebuildConfig: {
     onlyModules: ["sharp"],
     force: true
   },
   makers: [
-    new MakerSquirrel({ usePackageJson: true }),
     new MakerZIP({}),
-    new MakerDMG({ format: "ULFO" }),
-    new MakerDeb({})
+    // Windows
+    new MakerSquirrel({
+      usePackageJson: true,
+      iconUrl: "https://raw.githubusercontent.com/Yizack/emotes-resizer/main/public/favicon.ico",
+      setupIcon: "public/favicon.ico"
+    }),
+    // macOS
+    new MakerDMG({
+      overwrite: true,
+      format: "ULFO",
+      icon: "public/favicon.icns"
+    }),
+    // Linux
+    new MakerDeb({
+      options: {
+        categories: ["Utility"],
+        icon: "public/favicon.png"
+      }
+    })
   ],
   plugins: [
     new VitePlugin({
@@ -50,7 +69,7 @@ export default {
           target: "preload"
         }
       ],
-      renderer: []
+      renderer: [] // Nuxt app is generated no need to specify renderer
     }),
     // Fuses are used to enable/disable various Electron functionality
     // at package time, before code signing the application
@@ -66,15 +85,12 @@ export default {
     new AutoUnpackNativesPlugin({})
   ],
   publishers: [
-    {
-      name: "@electron-forge/publisher-github",
-      config: {
-        repository: {
-          owner: "Yizack",
-          name: "emotes-resizer"
-        },
-        prerelease: true
-      }
-    }
+    new PublisherGithub({
+      repository: {
+        owner: "Yizack",
+        name: packageJSON.name
+      },
+      prerelease: true
+    })
   ]
 } satisfies ForgeConfig;
