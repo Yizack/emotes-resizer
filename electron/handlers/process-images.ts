@@ -12,8 +12,8 @@ export default function () {
       });
 
       const metadata = await image.metadata();
-      const generateImage = async (pipeline: Sharp, sizeOptions: { width: number, height: number, percent?: number }) => {
-        const { width, height, percent } = sizeOptions;
+      const generateImage = async (pipeline: Sharp, sizeOptions: { width: number, height: number }) => {
+        const { width, height } = sizeOptions;
 
         const isSquare = width === height;
 
@@ -40,8 +40,8 @@ export default function () {
             break;
         }
 
-        const isScale = options.action === "scale" && percent !== undefined;
-        const suffix = isScale ? `${percent}%` : isSquare ? `${width}` : `${width}x${height}`;
+        const isScale = options.action === "scale" && options.percent !== undefined;
+        const suffix = isScale ? `${options.percent}%` : isSquare ? `${width}` : `${width}x${height}`;
         const filename = path.parse(filePath).name;
         const fileDir = options.outputDir || path.dirname(filePath);
 
@@ -55,8 +55,7 @@ export default function () {
         case "scale":
           await generateImage(image, {
             width: Math.round(currentWidth * ((options.percent || 100) / 100)),
-            height: Math.round(currentHeight * ((options.percent || 100) / 100)),
-            percent: options.percent
+            height: Math.round(currentHeight * ((options.percent || 100) / 100))
           });
           continue;
         case "resize":

@@ -78,7 +78,7 @@ const addSize = () => {
       <div v-if="files && files.length" class="mt-4">
         <USeparator class="my-4" />
         <h2 class="text-xl font-bold mb-4">Processing options</h2>
-        <div class="grid grid-cols-2 gap-4">
+        <div class="grid grid-cols-2 gap-5">
           <FloatingSelect v-model="options.resample" :items="resampleItems" placeholder="Resample" />
           <FloatingSelect v-model="options.action" :items="actionItems" placeholder="Action" />
           <FloatingSelect v-model="options.format" :items="formatItems" placeholder="Output format" />
@@ -90,30 +90,34 @@ const addSize = () => {
             <UCheckboxGroup v-model="generateOptions.sizes" :items="customSizes.items" size="lg" variant="card" orientation="horizontal" class="mb-2" :ui="{ fieldset: 'flex-wrap' }" />
             <UButtonGroup size="lg">
               <UInput v-model.string="customSizes.new" type="number" label="Add another" placeholder="Size in pixels..." />
-              <UBadge color="neutral" variant="outline" label="px" />
+              <UBadge color="neutral" variant="outline" label="px" :ui="{ label: 'px-2' }" />
               <UButton label="Add size" variant="subtle" @click="addSize" />
             </UButtonGroup>
           </template>
           <template v-else-if="options.action === 'scale'">
             <h3 class="font-medium">Scale factor</h3>
             <p class="text-sm text-muted mb-2">100% = original size</p>
-            <UButtonGroup size="lg">
-              <UInput v-model.number="scaleOptions.percent" type="number" min="1" placeholder="Percentage" required />
-              <UBadge color="neutral" variant="outline" label="%" />
-            </UButtonGroup>
+            <div class="grid grid-cols-2 gap-x-5 gap-y-4">
+              <UButtonGroup size="lg">
+                <FloatingInput v-model.number="scaleOptions.percent" type="number" min="1" placeholder="Percentage" class="w-full" required />
+                <UBadge color="neutral" variant="outline" label="%" :ui="{ label: 'px-2' }" />
+              </UButtonGroup>
+            </div>
           </template>
           <template v-else-if="options.action === 'resize'">
             <h3 class="font-medium">Resize to</h3>
             <p class="text-sm text-muted mb-2">Specify the width and height in pixels. Aspect ratio won't be preserved.</p>
-            <div class="flex gap-2">
-              <UButtonGroup size="lg">
-                <UInput v-model="resizeOptions.width" type="number" label="Width" placeholder="Width" required />
-                <UBadge color="neutral" variant="outline" label="px" />
-              </UButtonGroup>
-              <UButtonGroup size="lg">
-                <UInput v-model="resizeOptions.height" type="number" label="Height" placeholder="Height" required />
-                <UBadge color="neutral" variant="outline" label="px" />
-              </UButtonGroup>
+            <div class="flex flex-col gap-4">
+              <div class="flex gap-2">
+                <UButtonGroup size="lg">
+                  <FloatingInput v-model="resizeOptions.width" type="number" label="Width" placeholder="Width" required />
+                  <UBadge color="neutral" variant="outline" label="px" :ui="{ label: 'px-2' }" />
+                </UButtonGroup>
+                <UButtonGroup size="lg">
+                  <FloatingInput v-model="resizeOptions.height" type="number" label="Height" placeholder="Height" required />
+                  <UBadge color="neutral" variant="outline" label="px" :ui="{ label: 'px-2' }" />
+                </UButtonGroup>
+              </div>
             </div>
           </template>
         </div>
