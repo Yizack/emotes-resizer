@@ -1,5 +1,19 @@
-import path from "node:path";
+import path from "path";
 import { dialog, ipcMain } from "electron";
+
+const mimeTypes: Record<string, string> = {
+  png: "image/png",
+  webp: "image/webp",
+  jpg: "image/jpeg",
+  jpeg: "image/jpeg",
+  jfif: "image/jpeg",
+  gif: "image/gif"
+};
+
+const getMimeType = (filePath: string) => {
+  const ext = path.extname(filePath).slice(1).toLowerCase();
+  return mimeTypes[ext];
+};
 
 export default function () {
   return ipcMain.handle("open-images-dialog", async () => {
@@ -7,7 +21,7 @@ export default function () {
       properties: ["openFile", "multiSelections"],
       filters: [{
         name: "Images",
-        extensions: ["jpg", "jpeg", "png", "gif", "webp"]
+        extensions: Object.keys(mimeTypes)
       }]
     });
 
@@ -15,7 +29,8 @@ export default function () {
 
     return result.filePaths.map(filePath => ({
       name: path.basename(filePath),
-      path: filePath
+      path: filePath,
+      type: getMimeType(filePath)
     }));
   });
 }

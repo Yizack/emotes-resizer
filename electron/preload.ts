@@ -4,7 +4,7 @@ import { contextBridge, ipcRenderer, webUtils } from "electron";
 // the ipcRenderer without exposing the entire object
 export const handlers = {
   processImages: (paths: string[], options: ImagesProcessOptions): Promise<void> => ipcRenderer.invoke("process-images", paths, options),
-  openImagesDialog: (): Promise<{ name: string, path: string }[]> => ipcRenderer.invoke("open-images-dialog"),
+  openImagesDialog: (): Promise<{ name: string, path: string, type: string }[]> => ipcRenderer.invoke("open-images-dialog"),
   getFilePath: (file: File): string => webUtils.getPathForFile(file)
 };
 

@@ -1,13 +1,15 @@
 <script setup lang="ts" generic="T extends string | number">
 import type { SelectProps } from "@nuxt/ui";
 
-const props = defineProps<{
+const props = withDefaults(defineProps<{
   items: NonNullable<SelectProps["items"]>;
   color?: SelectProps["color"];
-  placeholder?: SelectProps["placeholder"];
+  placeholder: SelectProps["placeholder"];
   variant?: SelectProps["variant"];
   size?: SelectProps["size"];
-}>();
+}>(), {
+  size: "lg"
+});
 
 const model = defineModel<T>();
 

@@ -5,15 +5,15 @@ import { ipcMain } from "electron";
 export default function () {
   return ipcMain.handle("process-images", async (_, paths: string[], options: ImagesProcessOptions) => {
     for (const filePath of paths) {
-      const fileDir = options.outputDir || path.dirname(filePath);
-      const image = sharp(filePath);
-      const metadata = await image.metadata();
+      const isMaybeGif = path.extname(filePath).toLowerCase() === ".gif";
+      const image = sharp(filePath, {
+        autoOrient: true,
+        animated: isMaybeGif || options.format === "gif"
+      });
 
+      const metadata = await image.metadata();
       const generateImage = async (pipeline: Sharp, sizeOptions: { width: number, height: number }) => {
-        const fileNameWithoutExt = path.parse(filePath).name;
         const isSquare = sizeOptions.width === sizeOptions.height;
-        const fileSizeText = isSquare ? `${sizeOptions.width}` : `${sizeOptions.width}x${sizeOptions.height}`;
-        const outputName = `${fileNameWithoutExt}-${fileSizeText}.png`;
 
         pipeline = pipeline.resize({
           width: sizeOptions.width,
@@ -23,20 +23,42 @@ export default function () {
           kernel: options.resample
         });
 
-        await pipeline.png().toFile(path.join(fileDir, outputName));
+        const format = options.format === "auto" ? metadata.format : options.format;
+
+        switch (format) {
+          case "png":
+            pipeline = pipeline.png();
+            break;
+          case "webp":
+            pipeline = pipeline.webp();
+            break;
+          case "jpg":
+          case "jpeg":
+            pipeline = pipeline.jpeg();
+            break;
+        }
+
+        const suffix = isSquare ? `${sizeOptions.width}` : `${sizeOptions.width}x${sizeOptions.height}`;
+        const filename = path.parse(filePath).name;
+        const fileDir = options.outputDir || path.dirname(filePath);
+
+        await pipeline.toFile(path.join(fileDir, `${filename}-${suffix}.${metadata.format}`));
       };
+
+      const currentHeight = metadata.pageHeight || metadata.height;
+      const currentWidth = metadata.width;
 
       switch (options.action) {
         case "scale":
           await generateImage(image, {
-            width: Math.round(metadata.width * ((options.percent || 100) / 100)),
-            height: Math.round(metadata.height * ((options.percent || 100) / 100))
+            width: Math.round(currentWidth * ((options.percent || 100) / 100)),
+            height: Math.round(currentHeight * ((options.percent || 100) / 100))
           });
           continue;
         case "resize":
           await generateImage(image, {
-            width: options.width || metadata.width,
-            height: options.height || metadata.height
+            width: options.width || currentWidth,
+            height: options.height || currentHeight
           });
           continue;
         case "generate":

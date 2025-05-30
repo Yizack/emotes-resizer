@@ -1,5 +1,5 @@
 <script setup lang="ts">
-defineProps<{
+const props = defineProps<{
   label?: string;
   multiple?: boolean;
   accept?: string;
@@ -38,9 +38,10 @@ const handleDrop = async (e: DragEvent) => {
   const paths: { path: string, name: string }[] = [];
   for (const item of items) {
     const file = item.getAsFile();
-    if (!file) continue;
+    if (!file || (props.accept && !file.type.match(props.accept))) {
+      continue;
+    }
     const path = electron.getFilePath(file);
-    if (!path) continue;
     paths.push({ path, name: file.name });
   }
   model.value = paths;
@@ -50,7 +51,7 @@ const openFileDialog = async () => {
   if (model.value?.length || isOpened.value) return;
   isOpened.value = true;
   electron.openImagesDialog().then((files) => {
-    model.value = files;
+    model.value = files.filter(file => file.type && props.accept && file.type.match(props.accept));
   }).finally(() => {
     isOpened.value = false;
   });

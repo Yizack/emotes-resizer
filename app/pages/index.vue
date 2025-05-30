@@ -20,15 +20,12 @@ const scaleOptions = ref<ImagesProcessOptions<"scale">>({
 
 const options = ref<ImagesProcessOptions>({
   resample: "nearest",
-  action: "generate"
+  action: "generate",
+  format: "auto"
 });
 
 const customSizes = ref({
-  items: [
-    { label: "28x28", value: "28" },
-    { label: "56x56", value: "56" },
-    { label: "112x112", value: "112" }
-  ],
+  items: defaultSizes,
   new: ""
 });
 
@@ -46,6 +43,11 @@ const selectedOptions = computed(() => {
 
 const processFiles = async () => {
   if (!files.value?.length) return;
+  if (options.value.action === "generate" && !generateOptions.value.sizes?.length) {
+    toast.add({ title: APP.name, description: "Please select or add at least one size to generate.", color: "error" });
+    return;
+  }
+
   const paths = files.value.map(file => file.path);
   const mergedOptions = { ...toRaw(options.value), ...selectedOptions.value };
   isLoading.value = true;
@@ -77,14 +79,9 @@ const addSize = () => {
         <USeparator class="my-4" />
         <h2 class="text-xl font-bold mb-4">Processing options</h2>
         <div class="grid grid-cols-2 gap-4">
-          <div>
-            <h3 class="mb-2 font-medium">Resample</h3>
-            <USelect v-model="options.resample" :items="resampleTypes" size="lg" label="Resample" class="w-full" />
-          </div>
-          <div>
-            <h3 class="mb-2 font-medium">Action</h3>
-            <USelect v-model="options.action" :items="actionTypes" size="lg" label="Action" class="w-full" />
-          </div>
+          <FloatingSelect v-model="options.resample" :items="resampleItems" placeholder="Resample" />
+          <FloatingSelect v-model="options.action" :items="actionItems" placeholder="Action" />
+          <FloatingSelect v-model="options.format" :items="formatItems" placeholder="Output format" />
         </div>
         <div class="my-4">
           <template v-if="options.action === 'generate'">
