@@ -4,6 +4,7 @@ import { BrowserWindow, app, shell } from "electron";
 import started from "electron-squirrel-startup";
 import handlerProcessImages from "./handlers/process-images";
 import handlerSelectImages from "./handlers/select-images";
+import handlerSelectDirectory from "./handlers/select-directory";
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 if (started) {
@@ -73,3 +74,4 @@ app.on("activate", () => {
 // Register IPC handlers
 handlerProcessImages();
 handlerSelectImages();
+handlerSelectDirectory();

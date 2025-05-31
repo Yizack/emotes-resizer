@@ -42,9 +42,10 @@ export default defineIpcHandler("process-images", async (paths: string[], option
       const isScale = options.action === "scale" && options.percent !== undefined;
       const suffix = isScale ? `${options.percent}%` : isSquare ? `${width}` : `${width}x${height}`;
       const filename = path.parse(filePath).name;
-      const fileDir = options.outputDir || path.dirname(filePath);
+      const outputDir = options.outputDir || path.dirname(filePath);
+      const outputFilePath = path.join(outputDir, `${filename}-${suffix}.${format}`);
 
-      await pipeline.toFile(path.join(fileDir, `${filename}-${suffix}.${metadata.format}`));
+      await pipeline.toFile(outputFilePath);
     };
 
     const currentHeight = metadata.pageHeight || metadata.height;

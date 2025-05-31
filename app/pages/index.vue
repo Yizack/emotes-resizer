@@ -21,7 +21,8 @@ const scaleOptions = ref<ImagesProcessOptions<"scale">>({
 const options = ref<ImagesProcessOptions>({
   resample: "nearest",
   action: "generate",
-  format: "auto"
+  format: "auto",
+  outputDir: ""
 });
 
 const customSizes = ref({
@@ -69,6 +70,11 @@ const addSize = () => {
     value: customSizes.value.new
   });
 };
+
+const selectDirectory = async () => {
+  const result = await electron.selectDirectory();
+  options.value.outputDir = result;
+};
 </script>
 
 <template>
@@ -82,6 +88,13 @@ const addSize = () => {
           <FloatingSelect v-model="options.resample" :items="resampleItems" placeholder="Resample" />
           <FloatingSelect v-model="options.action" :items="actionItems" placeholder="Action" />
           <FloatingSelect v-model="options.format" :items="formatItems" placeholder="Output format" />
+          <UTooltip text="Images will be saved in the original folder if no output is set" :delay-duration="0">
+            <UButtonGroup size="lg">
+              <FloatingInput v-if="options.outputDir" v-model="options.outputDir" type="text" readonly placeholder="Output folder" />
+              <FloatingInput v-else label="Change output folder" placeholder="Output folder" @click="selectDirectory" />
+              <UButton v-if="options.outputDir" icon="lucide:x" color="error" variant="subtle" @click="options.outputDir = ''" />
+            </UButtonGroup>
+          </UTooltip>
         </div>
         <div class="my-4">
           <template v-if="options.action === 'generate'">
