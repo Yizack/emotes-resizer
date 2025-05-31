@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import packageJSON from "~~/package.json";
+
 const colorMode = useColorMode();
 const toggleColorMode = () => {
   colorMode.preference = colorMode.value === "dark" ? "light" : "dark";
@@ -9,8 +11,11 @@ const toggleColorMode = () => {
   <nav class="sticky top-0 z-10 w-full border-b border-muted">
     <UContainer class="flex items-center justify-between">
       <div class="flex items-center gap-2">
-        <Icon name="ph:arrows-in-simple-duotone" class="text-primary" size="2em" />
-        <h1 class="text-xl font-bold">{{ APP.name }}</h1>
+        <div class="flex gap-2 items-center">
+          <Icon name="ph:arrows-in-simple-duotone" class="text-primary" size="2em" />
+          <h1 class="text-xl font-bold">{{ APP.name }}</h1>
+          <span class="text-sm text-muted/50">v{{ packageJSON.version }}</span>
+        </div>
       </div>
       <div class="flex items-center">
         <ClientOnly>
