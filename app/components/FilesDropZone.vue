@@ -50,7 +50,7 @@ const handleDrop = async (e: DragEvent) => {
 const openFileDialog = async () => {
   if (model.value?.length || isOpened.value) return;
   isOpened.value = true;
-  electron.openImagesDialog().then((files) => {
+  electron.selectImages().then((files) => {
     model.value = files.filter(file => file.type && props.accept && file.type.match(props.accept));
   }).finally(() => {
     isOpened.value = false;

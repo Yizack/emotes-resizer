@@ -16,7 +16,7 @@ const getMimeType = (filePath: string) => {
   return mimeTypes[ext];
 };
 
-export default defineIpcHandler("open-images-dialog", async () => {
+export default defineIpcHandler("select-images", async () => {
   const result = await dialog.showOpenDialog({
     properties: ["openFile", "multiSelections"],
     filters: [{
