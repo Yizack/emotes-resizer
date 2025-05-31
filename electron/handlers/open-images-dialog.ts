@@ -1,5 +1,6 @@
 import path from "path";
-import { dialog, ipcMain } from "electron";
+import { dialog } from "electron";
+import { defineIpcHandler } from "../utils/handler";
 
 const mimeTypes: Record<string, string> = {
   png: "image/png",
@@ -15,22 +16,20 @@ const getMimeType = (filePath: string) => {
   return mimeTypes[ext];
 };
 
-export default function () {
-  return ipcMain.handle("open-images-dialog", async () => {
-    const result = await dialog.showOpenDialog({
-      properties: ["openFile", "multiSelections"],
-      filters: [{
-        name: "Images",
-        extensions: Object.keys(mimeTypes)
-      }]
-    });
-
-    if (result.canceled) return [];
-
-    return result.filePaths.map(filePath => ({
-      name: path.basename(filePath),
-      path: filePath,
-      type: getMimeType(filePath)
-    }));
+export default defineIpcHandler("open-images-dialog", async () => {
+  const result = await dialog.showOpenDialog({
+    properties: ["openFile", "multiSelections"],
+    filters: [{
+      name: "Images",
+      extensions: Object.keys(mimeTypes)
+    }]
   });
-}
+
+  if (result.canceled) return [];
+
+  return result.filePaths.map(filePath => ({
+    name: path.basename(filePath),
+    path: filePath,
+    type: getMimeType(filePath)
+  }));
+});
