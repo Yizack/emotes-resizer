@@ -69,6 +69,7 @@ const addSize = () => {
     label: `${customSizes.value.new}x${customSizes.value.new}`,
     value: customSizes.value.new
   });
+  customSizes.value.new = "";
 };
 
 const selectDirectory = async () => {
@@ -92,7 +93,7 @@ const selectDirectory = async () => {
             <UButtonGroup size="lg">
               <FloatingInput v-if="options.outputDir" v-model="options.outputDir" type="text" readonly placeholder="Output folder" />
               <FloatingInput v-else label="Change output folder" placeholder="Output folder" @click="selectDirectory" />
-              <UButton v-if="options.outputDir" icon="lucide:x" color="error" variant="subtle" @click="options.outputDir = ''" />
+              <UButton v-if="options.outputDir" icon="lucide:x" color="error" variant="subtle" type="button" @click="options.outputDir = ''" />
             </UButtonGroup>
           </UTooltip>
         </div>
@@ -100,12 +101,19 @@ const selectDirectory = async () => {
           <template v-if="options.action === 'generate'">
             <h3 class="font-medium">Sizes</h3>
             <p class="text-sm text-muted mb-2">Select or add the sizes in pixels you want to generate.</p>
-            <UCheckboxGroup v-model="generateOptions.sizes" :items="customSizes.items" size="lg" variant="card" orientation="horizontal" class="mb-2" :ui="{ fieldset: 'flex-wrap' }" />
-            <UButtonGroup size="lg">
-              <UInput v-model.string="customSizes.new" type="number" label="Add another" placeholder="Size in pixels..." />
-              <UBadge color="neutral" variant="outline" label="px" :ui="{ label: 'px-2' }" />
-              <UButton label="Add size" variant="subtle" @click="addSize" />
-            </UButtonGroup>
+            <UCheckboxGroup v-model="generateOptions.sizes" :items="customSizes.items" size="lg" variant="card" orientation="horizontal" class="mb-2" :ui="{ fieldset: 'flex-wrap', item: 'group' }">
+              <template #label="{ item }">
+                <span>{{ item.label }}</span>
+                <UButton icon="lucide:x" color="error" variant="ghost" size="sm" type="button" class="hidden group-hover:block absolute top-0 end-0 p-1" @click.stop="customSizes.items = customSizes.items.filter(i => i.value !== item.value)" />
+              </template>
+            </UCheckboxGroup>
+            <form @submit.prevent="addSize">
+              <UButtonGroup size="lg">
+                <UInput v-model.string="customSizes.new" type="number" label="Add another" placeholder="Size in pixels..." />
+                <UBadge color="neutral" variant="outline" label="px" :ui="{ label: 'px-2' }" />
+                <UButton label="Add size" variant="subtle" type="submit" />
+              </UButtonGroup>
+            </form>
           </template>
           <template v-else-if="options.action === 'scale'">
             <h3 class="font-medium">Scale factor</h3>
