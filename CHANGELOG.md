@@ -1,6 +1,33 @@
 # Changelog
 
 
+## v0.0.5
+
+[compare changes](https://github.com/Yizack/emotes-resizer/compare/v0.0.4...v0.0.5)
+
+### 🚀 Enhancements
+
+- Select output directory support ([f91e87b](https://github.com/Yizack/emotes-resizer/commit/f91e87b))
+- Allow delete default sizes ([9ab57fc](https://github.com/Yizack/emotes-resizer/commit/9ab57fc))
+
+### 💅 Refactors
+
+- Use ipc handler utils ([bc72617](https://github.com/Yizack/emotes-resizer/commit/bc72617))
+- Rename select images handler ([9b28413](https://github.com/Yizack/emotes-resizer/commit/9b28413))
+
+### 📖 Documentation
+
+- Update app screenshots ([4c7f8af](https://github.com/Yizack/emotes-resizer/commit/4c7f8af))
+- Remove explicit version ([06ca475](https://github.com/Yizack/emotes-resizer/commit/06ca475))
+
+### 🏡 Chore
+
+- Include app version in navbar ([6317ba6](https://github.com/Yizack/emotes-resizer/commit/6317ba6))
+
+### ❤️ Contributors
+
+- Yizack Rangel ([@Yizack](https://github.com/Yizack))
+
 ## v0.0.4
 
 [compare changes](https://github.com/Yizack/emotes-resizer/compare/v0.0.3...v0.0.4)

@@ -1,7 +1,7 @@
 {
   "private": true,
   "name": "emotes-resizer",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "main": ".vite/build/main.cjs",
   "description": "Desktop application for resizing emotes using Electron and Nuxt",
   "type": "module",
