@@ -65,7 +65,8 @@ export default defineIpcHandler("process-images", async (paths: string[], option
         });
         continue;
       case "generate":
-        for (const size of options.sizes || [100, 200, 300]) {
+        if (!options.sizes) continue;
+        for (const size of options.sizes) {
           await generateImage(image.clone(), {
             width: Number(size),
             height: Number(size)
