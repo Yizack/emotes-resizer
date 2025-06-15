@@ -65,7 +65,7 @@ Where `X.X.X` is the current version number, you can chose from the following op
 
 ### Process images
 
-The processed images will be saved in the same directory as the original files in `PNG` format. Each generated image's filename will include a size suffix (e.g., `emote-28.png`, `emote-56.png`) to identify its dimensions.
+The processed images will be saved in the same directory as the original files by default or in the selected directory, by default the images are saved in its original format unless a format option has been chosen. Each generated image's filename will include a size suffix (e.g., `emote-28.png`, `emote-56.png`) to identify its dimensions.
 
 ### Application Screenshots
 
