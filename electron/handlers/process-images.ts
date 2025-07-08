@@ -1,5 +1,6 @@
 import path from "node:path";
-import sharp, { type Sharp } from "sharp";
+import sharp from "sharp";
+import type { Sharp } from "sharp";
 import { defineIpcHandler } from "../utils/handler";
 
 export default defineIpcHandler("process-images", async (paths: string[], options: ImagesProcessOptions) => {

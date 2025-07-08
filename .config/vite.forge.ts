@@ -1,6 +1,7 @@
 import { fileURLToPath } from "node:url";
 import { cp, mkdir } from "node:fs/promises";
-import { type Plugin, defineConfig } from "vite";
+import { defineConfig } from "vite";
+import type { Plugin } from "vite";
 
 const copyNuxtOutput: Plugin = {
   name: "copy-nuxt-output",
