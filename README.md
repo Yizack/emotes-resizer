@@ -23,7 +23,7 @@ A desktop application for streamers and content creators to quickly resize emote
 - 🖼️ User-friendly interface with drag-and-drop support
 - 📐 Resizing modes
 - 💾 Processing multiple files at once
-- 📂 Save processed images in the same directory as originals
+- 📂 Save processed images to the original folder or select a custom output directory
 - ⚡ Fast image processing using [Sharp](https://sharp.pixelplumbing.com/)
 - 🖥️ Cross-platform support for Windows, macOS, and Linux
 
