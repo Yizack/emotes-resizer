@@ -37,8 +37,8 @@ Where `X.X.X` is the current version number, you can chose from the following op
 
 - **Windows**:
   - `emotes-resizer-X.X.X.Setup.exe`
-  - `emotes-resizer-win32-x64-X.X.X..zip`
-  - `emotes_resizer-X.X.X.-full.nupkg`
+  - `emotes-resizer-win32-x64-X.X.X.zip`
+  - `emotes_resizer-X.X.X-full.nupkg`
 - **macOS**:
   - `emotes-resizer-X.X.X-arm64.dmg`
   - `emotes-resizer-darwin-arm64-X.X.X.zip`
