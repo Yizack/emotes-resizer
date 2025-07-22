@@ -71,7 +71,7 @@ The processed images will be saved in the same directory as the original files b
 
 | Initial Screen | Files selected |
 |:---:|:---:|
-| ![initial](https://github.com/user-attachments/assets/c8ad3151-4713-43a8-bee7-f64327712999) | ![generate](https://github.com/user-attachments/assets/f259a420-84ef-40f7-8176-99c35732b0b0) |
+| ![initial](https://github.com/user-attachments/assets/993b13c8-7394-4c82-8203-277e2689a75c) | ![generate](https://github.com/user-attachments/assets/d23caca3-5809-450f-8c2e-2ccc9b59c9ac) |
 | *Drag & drop interface* | *Action mode: Generate* |
   
 ## <a name="credits">🗒️ Credits</a>
