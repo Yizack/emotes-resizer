@@ -1,6 +1,27 @@
 # Changelog
 
 
+## v0.0.6
+
+[compare changes](https://github.com/Yizack/emotes-resizer/compare/v0.0.5...v0.0.6)
+
+### 📖 Documentation
+
+- Edit processed image info ([abb4307](https://github.com/Yizack/emotes-resizer/commit/abb4307))
+- Mention scale suffix ([f54c044](https://github.com/Yizack/emotes-resizer/commit/f54c044))
+- Update save folder feature description ([7807d5e](https://github.com/Yizack/emotes-resizer/commit/7807d5e))
+- Fix download guide formats ([44a456e](https://github.com/Yizack/emotes-resizer/commit/44a456e))
+
+### 🏡 Chore
+
+- No default generate array needed ([7ce87e7](https://github.com/Yizack/emotes-resizer/commit/7ce87e7))
+- Move pnpm .npmrc settings to pnpm-workspace.yaml ([98a91c6](https://github.com/Yizack/emotes-resizer/commit/98a91c6))
+- Update dependencies ([0fea7c5](https://github.com/Yizack/emotes-resizer/commit/0fea7c5))
+
+### ❤️ Contributors
+
+- Yizack Rangel ([@Yizack](https://github.com/Yizack))
+
 ## v0.0.5
 
 [compare changes](https://github.com/Yizack/emotes-resizer/compare/v0.0.4...v0.0.5)
