@@ -29,7 +29,7 @@
     "lint:eslint": "eslint --config .config/eslint.mjs",
     "lint:eslint:inspect": "pnpm dlx @eslint/config-inspector --config .config/eslint.mjs",
     "lint:stylelint": "stylelint \"**/*.{css,scss,sass}\" --config .config/stylelint.json",
-    "test:types": "vue-tsc --noEmit",
+    "test:types": "vue-tsc -b --noEmit",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare"
@@ -45,33 +45,33 @@
     "@electron-forge/plugin-vite": "^7.8.1",
     "@electron-forge/publisher-github": "^7.8.1",
     "@electron/fuses": "^1.8.0",
-    "@iconify-json/lucide": "^1.2.56",
-    "@nuxt/eslint": "^1.5.2",
+    "@iconify-json/lucide": "^1.2.57",
+    "@nuxt/eslint": "^1.7.0",
     "@nuxt/ui": "^3.2.0",
     "@types/electron-squirrel-startup": "^1.0.2",
-    "@types/node": "^24.0.1",
+    "@types/node": "^24.1.0",
     "changelogen": "^0.6.2",
     "concurrently": "^9.2.0",
     "cross-env": "^7.0.3",
-    "electron": "^37.2.0",
+    "electron": "^37.2.3",
     "electron-packager-languages": "^0.6.0",
-    "eslint": "^9.30.1",
-    "nuxt": "^3.17.6",
+    "eslint": "^9.31.0",
+    "nuxt": "^4.0.1",
     "sass": "^1.89.2",
-    "stylelint": "^16.21.1",
+    "stylelint": "^16.22.0",
     "stylelint-config-standard-scss": "^15.0.1",
     "typescript": "^5.8.3",
-    "vite": "^7.0.3",
+    "vite": "^7.0.5",
     "vite-plugin-electron": "^0.29.0",
     "vite-plugin-electron-renderer": "^0.14.6",
-    "vue-tsc": "^3.0.1"
+    "vue-tsc": "^3.0.3"
   },
   "dependencies": {
     "electron-squirrel-startup": "^1.0.1",
-    "sharp": "^0.34.2"
+    "sharp": "^0.34.3"
   },
   "config": {
     "forge": ".config/forge.ts"
   },
-  "packageManager": "pnpm@10.12.4"
+  "packageManager": "pnpm@10.13.1"
 }

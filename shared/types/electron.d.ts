@@ -1,4 +1,4 @@
-import type { handlers } from "./../electron/preload";
+import type { handlers } from "~~/electron/preload";
 
 type ElectronAPI = typeof handlers;
 
