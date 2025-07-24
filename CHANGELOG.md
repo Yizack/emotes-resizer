@@ -1,6 +1,23 @@
 # Changelog
 
 
+## v0.0.7
+
+[compare changes](https://github.com/Yizack/emotes-resizer/compare/v0.0.6...v0.0.7)
+
+### 📖 Documentation
+
+- Update app screenshots ([4ac2ebd](https://github.com/Yizack/emotes-resizer/commit/4ac2ebd))
+
+### 🏡 Chore
+
+- Types test on release script ([997e305](https://github.com/Yizack/emotes-resizer/commit/997e305))
+- Update electron ([3efb6f1](https://github.com/Yizack/emotes-resizer/commit/3efb6f1))
+
+### ❤️ Contributors
+
+- Yizack Rangel ([@Yizack](https://github.com/Yizack))
+
 ## v0.0.6
 
 [compare changes](https://github.com/Yizack/emotes-resizer/compare/v0.0.5...v0.0.6)
