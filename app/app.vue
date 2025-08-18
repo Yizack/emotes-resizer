@@ -18,6 +18,7 @@ const restoreToasts = () => {
     if (elapsed >= duration) continue;
     const remaining = duration - elapsed;
 
+    // @ts-expect-error disable TS258
     toast.add({ ...saved, duration: remaining });
   }
 
