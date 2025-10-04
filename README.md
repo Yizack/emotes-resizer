@@ -2,8 +2,8 @@
 
 # emotes-resizer
 
-![GitHub release](https://img.shields.io/github/v/release/Yizack/emotes-resizer)
-![License](https://img.shields.io/github/license/Yizack/emotes-resizer)
+[![version][version-src]][version-href]
+[![license][license-src]][license-href]
 
 A desktop application for streamers and content creators to quickly resize emotes, badges, and other stream assets.
 
@@ -124,3 +124,10 @@ npm run make
 # npm run build
 ```
 </details>
+
+<!-- Badges -->
+[version-src]: https://img.shields.io/github/v/release/Yizack/emotes-resizer
+[version-href]: https://github.com/Yizack/emotes-resizer/releases
+
+[license-src]: https://img.shields.io/github/license/Yizack/emotes-resizer
+[license-href]: https://github.com/Yizack/emotes-resizer/blob/main/LICENSE
