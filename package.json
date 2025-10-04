@@ -35,43 +35,43 @@
     "postinstall": "nuxt prepare"
   },
   "devDependencies": {
-    "@electron-forge/cli": "^7.8.3",
-    "@electron-forge/maker-deb": "^7.8.3",
-    "@electron-forge/maker-dmg": "^7.8.3",
-    "@electron-forge/maker-squirrel": "^7.8.3",
-    "@electron-forge/maker-zip": "^7.8.3",
-    "@electron-forge/plugin-auto-unpack-natives": "^7.8.3",
-    "@electron-forge/plugin-fuses": "^7.8.3",
-    "@electron-forge/plugin-vite": "^7.8.3",
-    "@electron-forge/publisher-github": "^7.8.3",
+    "@electron-forge/cli": "^7.9.0",
+    "@electron-forge/maker-deb": "^7.9.0",
+    "@electron-forge/maker-dmg": "^7.9.0",
+    "@electron-forge/maker-squirrel": "^7.9.0",
+    "@electron-forge/maker-zip": "^7.9.0",
+    "@electron-forge/plugin-auto-unpack-natives": "^7.9.0",
+    "@electron-forge/plugin-fuses": "^7.9.0",
+    "@electron-forge/plugin-vite": "^7.9.0",
+    "@electron-forge/publisher-github": "^7.9.0",
     "@electron/fuses": "^2.0.0",
-    "@iconify-json/lucide": "^1.2.62",
+    "@iconify-json/lucide": "^1.2.68",
     "@nuxt/eslint": "^1.9.0",
-    "@nuxt/ui": "^3.3.2",
+    "@nuxt/ui": "^4.0.1",
     "@types/electron-squirrel-startup": "^1.0.2",
-    "@types/node": "^24.3.0",
+    "@types/node": "^24.6.2",
     "changelogen": "^0.6.2",
-    "concurrently": "^9.2.0",
-    "cross-env": "^10.0.0",
-    "electron": "^37.3.0",
+    "concurrently": "^9.2.1",
+    "cross-env": "^10.1.0",
+    "electron": "^38.2.1",
     "electron-packager-languages": "^0.6.0",
-    "eslint": "^9.33.0",
-    "nuxt": "^4.0.3",
-    "sass": "^1.90.0",
-    "stylelint": "^16.23.1",
-    "stylelint-config-standard-scss": "^15.0.1",
-    "typescript": "^5.9.2",
-    "vite": "^7.1.2",
+    "eslint": "^9.37.0",
+    "nuxt": "^4.1.2",
+    "sass": "^1.93.2",
+    "stylelint": "^16.25.0",
+    "stylelint-config-standard-scss": "^16.0.0",
+    "typescript": "^5.9.3",
+    "vite": "^7.1.9",
     "vite-plugin-electron": "^0.29.0",
     "vite-plugin-electron-renderer": "^0.14.6",
-    "vue-tsc": "^3.0.5"
+    "vue-tsc": "^3.1.0"
   },
   "dependencies": {
     "electron-squirrel-startup": "^1.0.1",
-    "sharp": "^0.34.3"
+    "sharp": "^0.34.4"
   },
   "config": {
     "forge": ".config/forge.ts"
   },
-  "packageManager": "pnpm@10.14.0"
+  "packageManager": "pnpm@10.18.0"
 }

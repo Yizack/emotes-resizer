@@ -3,7 +3,7 @@ import type { KernelEnum, Metadata } from "sharp";
 declare global {
   type ImagesProcessActions = {
     action: "generate";
-    sizes?: (number | string)[];
+    sizes?: string[];
   } | {
     action: "scale";
     percent?: number;

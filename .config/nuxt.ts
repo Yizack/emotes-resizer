@@ -35,7 +35,7 @@ export default defineNuxtConfig({
     colorMode: true,
     fonts: false
   },
-  future: { compatibilityVersion: 4 },
+  // future: { compatibilityVersion: 4 },
   features: {
     inlineStyles: false
   },
@@ -44,12 +44,12 @@ export default defineNuxtConfig({
     payloadExtraction: false,
     renderJsonPayloads: false
   },
-  compatibilityDate: "2025-05-26",
+  compatibilityDate: "2025-10-04",
   vite: {
     css: {
       preprocessorOptions: {
         scss: {
-          silenceDeprecations: ["mixed-decls", "color-functions", "import", "global-builtin"]
+          silenceDeprecations: ["color-functions", "import", "global-builtin"]
         }
       }
     }
@@ -69,6 +69,14 @@ export default defineNuxtConfig({
     provider: "iconify",
     clientBundle: {
       scan: true
+    }
+  },
+  typescript: {
+    nodeTsConfig: {
+      include: [
+        "../electron/**/*",
+        "../shared/**/*.d.ts"
+      ]
     }
   }
 });
