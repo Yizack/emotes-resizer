@@ -1,6 +1,22 @@
 # Changelog
 
 
+## v0.0.8
+
+[compare changes](https://github.com/Yizack/emotes-resizer/compare/v0.0.7...v0.0.8)
+
+### 📖 Documentation
+
+- Add links to badges ([9ab2568](https://github.com/Yizack/emotes-resizer/commit/9ab2568))
+
+### 🤖 CI
+
+- Update actions ([5e81d88](https://github.com/Yizack/emotes-resizer/commit/5e81d88))
+
+### ❤️ Contributors
+
+- Yizack Rangel ([@Yizack](https://github.com/Yizack))
+
 ## v0.0.7
 
 [compare changes](https://github.com/Yizack/emotes-resizer/compare/v0.0.6...v0.0.7)
