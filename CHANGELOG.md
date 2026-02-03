@@ -1,6 +1,22 @@
 # Changelog
 
 
+## v0.0.10
+
+[compare changes](https://github.com/Yizack/emotes-resizer/compare/v0.0.9...v0.0.10)
+
+### 🩹 Fixes
+
+- Replace UButtonGroup with UFieldGroup ([8414489](https://github.com/Yizack/emotes-resizer/commit/8414489))
+
+### 🏡 Chore
+
+- Replace arbitrary min-height classes with utilities ([16f356b](https://github.com/Yizack/emotes-resizer/commit/16f356b))
+
+### ❤️ Contributors
+
+- Yizack Rangel ([@Yizack](https://github.com/Yizack))
+
 ## v0.0.9
 
 [compare changes](https://github.com/Yizack/emotes-resizer/compare/v0.0.8...v0.0.9)
