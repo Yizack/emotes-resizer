@@ -90,11 +90,11 @@ const selectDirectory = async () => {
           <FloatingSelect v-model="options.action" :items="actionItems" placeholder="Action" />
           <FloatingSelect v-model="options.format" :items="formatItems" placeholder="Output format" />
           <UTooltip text="Images will be saved in the original folder if no output is set" :delay-duration="0">
-            <UButtonGroup size="lg">
+            <UFieldGroup size="lg">
               <FloatingInput v-if="options.outputDir" v-model="options.outputDir" type="text" readonly placeholder="Output folder" />
               <FloatingInput v-else label="Change output folder" placeholder="Output folder" @click="selectDirectory" />
               <UButton v-if="options.outputDir" icon="lucide:x" color="error" variant="subtle" type="button" @click="options.outputDir = ''" />
-            </UButtonGroup>
+            </UFieldGroup>
           </UTooltip>
         </div>
         <div class="my-4">
@@ -108,21 +108,21 @@ const selectDirectory = async () => {
               </template>
             </UCheckboxGroup>
             <form @submit.prevent="addSize">
-              <UButtonGroup size="lg">
+              <UFieldGroup size="lg">
                 <UInput v-model.string="customSizes.new" type="number" label="Add another" placeholder="Size in pixels..." />
                 <UBadge color="neutral" variant="outline" label="px" :ui="{ label: 'px-2' }" />
                 <UButton label="Add size" variant="subtle" type="submit" />
-              </UButtonGroup>
+              </UFieldGroup>
             </form>
           </template>
           <template v-else-if="options.action === 'scale'">
             <h3 class="font-medium">Scale factor</h3>
             <p class="text-sm text-muted mb-2">100% = original size</p>
             <div class="grid grid-cols-2 gap-x-5 gap-y-4">
-              <UButtonGroup size="lg">
+              <UFieldGroup size="lg">
                 <FloatingInput v-model.number="scaleOptions.percent" type="number" min="1" placeholder="Percentage" class="w-full" required />
                 <UBadge color="neutral" variant="outline" label="%" :ui="{ label: 'px-2' }" />
-              </UButtonGroup>
+              </UFieldGroup>
             </div>
           </template>
           <template v-else-if="options.action === 'resize'">
@@ -130,14 +130,14 @@ const selectDirectory = async () => {
             <p class="text-sm text-muted mb-2">Specify the width and height in pixels. Aspect ratio won't be preserved.</p>
             <div class="flex flex-col gap-4">
               <div class="flex gap-2">
-                <UButtonGroup size="lg">
+                <UFieldGroup size="lg">
                   <FloatingInput v-model="resizeOptions.width" type="number" label="Width" placeholder="Width" required />
                   <UBadge color="neutral" variant="outline" label="px" :ui="{ label: 'px-2' }" />
-                </UButtonGroup>
-                <UButtonGroup size="lg">
+                </UFieldGroup>
+                <UFieldGroup size="lg">
                   <FloatingInput v-model="resizeOptions.height" type="number" label="Height" placeholder="Height" required />
                   <UBadge color="neutral" variant="outline" label="px" :ui="{ label: 'px-2' }" />
-                </UButtonGroup>
+                </UFieldGroup>
               </div>
             </div>
           </template>
