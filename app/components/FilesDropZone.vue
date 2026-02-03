@@ -69,9 +69,9 @@ const clearFiles = () => {
 
 <template>
   <div
-    class="w-full min-h-[200px] border-2 border-dashed rounded-lg text-center transition-all duration-200 flex items-center justify-center border-muted hover:border-primary hover:bg-muted p-4 sm:px-6 lg:px-8"
+    class="w-full min-h-50 border-2 border-dashed rounded-lg text-center transition-all duration-200 flex items-center justify-center border-muted hover:border-primary hover:bg-muted p-4 sm:px-6 lg:px-8"
     :class="{
-      'min-h-[400px]': !model || !model.length,
+      'min-h-100': !model || !model.length,
       'border-primary bg-muted': isDragging || model && model.length,
     }"
     @dragenter.prevent.stop="handleDragEnter"
