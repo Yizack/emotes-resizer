@@ -54,6 +54,14 @@ export default defineNuxtConfig({
       }
     }
   },
+  typescript: {
+    nodeTsConfig: {
+      include: [
+        "../electron/**/*",
+        "../shared/**/*.d.ts"
+      ]
+    }
+  },
   postcss: {
     plugins: {
       "@tailwindcss/postcss": {}
@@ -69,14 +77,6 @@ export default defineNuxtConfig({
     provider: "iconify",
     clientBundle: {
       scan: true
-    }
-  },
-  typescript: {
-    nodeTsConfig: {
-      include: [
-        "../electron/**/*",
-        "../shared/**/*.d.ts"
-      ]
     }
   }
 });
