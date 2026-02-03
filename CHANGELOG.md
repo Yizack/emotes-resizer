@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v0.0.9
+
+[compare changes](https://github.com/Yizack/emotes-resizer/compare/v0.0.8...v0.0.9)
+
+### 🏡 Chore
+
+- Bump deps, update CI/actions and configs ([ed2abf9](https://github.com/Yizack/emotes-resizer/commit/ed2abf9))
+
+### ❤️ Contributors
+
+- Yizack Rangel ([@Yizack](https://github.com/Yizack))
+
 ## v0.0.8
 
 [compare changes](https://github.com/Yizack/emotes-resizer/compare/v0.0.7...v0.0.8)
