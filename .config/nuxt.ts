@@ -2,8 +2,7 @@ import { APP } from "../app/utils/app-info";
 
 export default defineNuxtConfig({
   modules: [
-    "@nuxt/ui",
-    "@nuxt/eslint"
+    "@nuxt/ui"
   ],
   ssr: false,
   devtools: { enabled: true },
@@ -65,12 +64,6 @@ export default defineNuxtConfig({
   postcss: {
     plugins: {
       "@tailwindcss/postcss": {}
-    }
-  },
-  eslint: {
-    config: {
-      autoInit: false,
-      stylistic: true
     }
   },
   icon: {

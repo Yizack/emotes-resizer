@@ -109,7 +109,7 @@ const selectDirectory = async () => {
             </UCheckboxGroup>
             <form @submit.prevent="addSize">
               <UFieldGroup size="lg">
-                <UInput v-model.string="customSizes.new" type="number" label="Add another" placeholder="Size in pixels..." />
+                <UInput v-model="customSizes.new" type="number" label="Add another" placeholder="Size in pixels..." />
                 <UBadge color="neutral" variant="outline" label="px" :ui="{ label: 'px-2' }" />
                 <UButton label="Add size" variant="subtle" type="submit" />
               </UFieldGroup>
