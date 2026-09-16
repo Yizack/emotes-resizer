@@ -13,5 +13,5 @@ allowBuilds:
   esbuild: false
   unrs-resolver: false
   vue-demi: false
-  fs-xattr: false
-  macos-alias: false
+  fs-xattr: true
+  macos-alias: true
