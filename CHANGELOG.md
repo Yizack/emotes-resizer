@@ -1,6 +1,22 @@
 # Changelog
 
 
+## v0.0.13
+
+[compare changes](https://github.com/Yizack/emotes-resizer/compare/v0.0.12...v0.0.13)
+
+### 🩹 Fixes
+
+- Enable fs-xattr and macos-alias build ([b949fb7](https://github.com/Yizack/emotes-resizer/commit/b949fb7))
+
+### 🤖 CI
+
+- Create release notes before publishing ([39c199c](https://github.com/Yizack/emotes-resizer/commit/39c199c))
+
+### ❤️ Contributors
+
+- Yizack Rangel ([@Yizack](https://github.com/Yizack))
+
 ## v0.0.12
 
 [compare changes](https://github.com/Yizack/emotes-resizer/compare/v0.0.11...v0.0.12)
