@@ -1,18 +1,15 @@
+minimumReleaseAge: 0
 shamefullyHoist: true
 strictPeerDependencies: false
 nodeLinker: hoisted
+blockExoticSubdeps: false
 
 packages:
   - .
 
-ignoredBuiltDependencies:
-  - '@parcel/watcher'
-  - '@tailwindcss/oxide'
-  - esbuild
-  - unrs-resolver
-  - vue-demi
-
-onlyBuiltDependencies:
-  - electron
-  - electron-winstaller
-  - sharp
+allowBuilds:
+  '@parcel/watcher': false
+  electron-winstaller: true
+  esbuild: false
+  unrs-resolver: false
+  vue-demi: false
