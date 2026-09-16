@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v0.0.12
+
+[compare changes](https://github.com/Yizack/emotes-resizer/compare/v0.0.11...v0.0.12)
+
+### 🩹 Fixes
+
+- Pnpm builds setting ([a96fed5](https://github.com/Yizack/emotes-resizer/commit/a96fed5))
+
+### ❤️ Contributors
+
+- Yizack Rangel ([@Yizack](https://github.com/Yizack))
+
 ## v0.0.11
 
 [compare changes](https://github.com/Yizack/emotes-resizer/compare/v0.0.10...v0.0.11)
