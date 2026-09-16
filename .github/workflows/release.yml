@@ -24,11 +24,11 @@ jobs:
           cache: true
         
       - name: 💚 Build Nuxt app
-        run: pnpm run generate
+        run: node --run generate
 
       - name: ✂️ Rebuild native modules
         run: |
-          npm rebuild
+          pnpm rebuild
           pnpm exec electron-rebuild
         
       - name: ⚛️ Make and publish artifacts
