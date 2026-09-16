@@ -30,6 +30,11 @@ jobs:
         run: |
           pnpm rebuild
           pnpm exec electron-rebuild
+
+      - name: 📝 Create release notes
+        env: 
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node --run release:github
         
       - name: ⚛️ Make and publish artifacts
         env:
