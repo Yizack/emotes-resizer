@@ -34,7 +34,6 @@ export default defineIpcHandler("process-images", async (paths: string[], option
         case "webp":
           pipeline = pipeline.webp();
           break;
-        case "jpg":
         case "jpeg":
           pipeline = pipeline.jpeg();
           break;

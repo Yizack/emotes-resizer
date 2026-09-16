@@ -27,6 +27,6 @@ export const formatItems: UItem<ImagesProcessOptions["format"]>[] = [
   { label: "Auto detect", value: "auto" },
   { label: "PNG", value: "png" },
   { label: "WebP", value: "webp" },
-  { label: "JPEG", value: "jpg" },
+  { label: "JPEG", value: "jpeg" },
   { label: "GIF", value: "gif" }
 ];
