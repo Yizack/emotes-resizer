@@ -1,6 +1,31 @@
 # Changelog
 
 
+## v0.0.11
+
+[compare changes](https://github.com/Yizack/emotes-resizer/compare/v0.0.10...v0.0.11)
+
+### 🩹 Fixes
+
+- Normalize JPEG format value ([c5e192f](https://github.com/Yizack/emotes-resizer/commit/c5e192f))
+
+### 🏡 Chore
+
+- **lint:** Switch to `@yizack/eslint-config` ([2c2691a](https://github.com/Yizack/emotes-resizer/commit/2c2691a))
+- Update all deps ([f42e973](https://github.com/Yizack/emotes-resizer/commit/f42e973))
+- Clean up nuxt config ([069abfd](https://github.com/Yizack/emotes-resizer/commit/069abfd))
+- **scripts:** Use node to run scripts ([9838232](https://github.com/Yizack/emotes-resizer/commit/9838232))
+
+### 🤖 CI
+
+- Drop corepack and migrate actions to use `pnpm/setup` ([5283975](https://github.com/Yizack/emotes-resizer/commit/5283975))
+- Use node script runner in workflows ([6c3e63a](https://github.com/Yizack/emotes-resizer/commit/6c3e63a))
+- Create release notes ([7b04e3a](https://github.com/Yizack/emotes-resizer/commit/7b04e3a))
+
+### ❤️ Contributors
+
+- Yizack Rangel ([@Yizack](https://github.com/Yizack))
+
 ## v0.0.10
 
 [compare changes](https://github.com/Yizack/emotes-resizer/compare/v0.0.9...v0.0.10)
