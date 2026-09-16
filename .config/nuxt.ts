@@ -43,27 +43,13 @@ export default defineNuxtConfig({
     payloadExtraction: false,
     renderJsonPayloads: false
   },
-  compatibilityDate: "2025-10-04",
-  vite: {
-    css: {
-      preprocessorOptions: {
-        scss: {
-          silenceDeprecations: ["color-functions", "import", "global-builtin"]
-        }
-      }
-    }
-  },
+  compatibilityDate: "2026-09-16",
   typescript: {
     nodeTsConfig: {
       include: [
         "../electron/**/*",
         "../shared/**/*.d.ts"
       ]
-    }
-  },
-  postcss: {
-    plugins: {
-      "@tailwindcss/postcss": {}
     }
   },
   icon: {
