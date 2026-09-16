@@ -17,15 +17,11 @@ jobs:
         os: [windows-latest, ubuntu-latest, macos-latest]
     
     steps:
-      - uses: actions/checkout@v6
-      - run: corepack enable
-      - uses: actions/setup-node@v6
+      - uses: actions/checkout@v7
+      - uses: pnpm/setup@v2
         with:
-          node-version: lts/*
-          cache: pnpm
-        
-      - name: 📦 Install dependencies
-        run: pnpm install
+          runtime: node@lts
+          cache: true
         
       - name: 💚 Build Nuxt app
         run: pnpm run generate
