@@ -10,7 +10,23 @@ permissions:
   packages: write
 
 jobs:
+  release-notes:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v7
+      - uses: pnpm/setup@v2
+        with:
+          runtime: node@lts
+          cache: true
+
+      - name: 📝 Create release notes
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node --run release:github
+
   publish:
+    needs: release-notes
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
@@ -30,11 +46,6 @@ jobs:
         run: |
           pnpm rebuild
           pnpm exec electron-rebuild
-
-      - name: 📝 Create release notes
-        env: 
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: node --run release:github
         
       - name: ⚛️ Make and publish artifacts
         env:
